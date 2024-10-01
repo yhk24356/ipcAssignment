@@ -2,3 +2,5 @@ Debug/
 ipc2023/Debug/
 .vs/
 *.user
+ipc2023/ipc2023.vcxproj
+ipc2023/ipc2023.vcxproj.filters
