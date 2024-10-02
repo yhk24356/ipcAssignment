@@ -102,7 +102,7 @@ BEGIN_MESSAGE_MAP(Cipc2023Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_ADDR, &Cipc2023Dlg::OnBnClickedButtonAddr)
+	ON_BN_CLICKED(IDC_BUTTON_ADDR, &Cipc2023Dlg::OnBnClickedButtonSetdstaddr) //버튼 함수명 변경: OnBnClickedButtonAddr -> OnBnClickedButtonSetdstaddr --2024.10.02--
 	ON_BN_CLICKED(IDC_BUTTON_SEND, &Cipc2023Dlg::OnBnClickedButtonSend)
 	ON_WM_TIMER()
 
@@ -113,7 +113,10 @@ BEGIN_MESSAGE_MAP(Cipc2023Dlg, CDialogEx)
 	///////////////////////////////////////////////////////////////////////
 	
 	
-	ON_BN_CLICKED(IDC_CHECK_TOALL, &Cipc2023Dlg::OnBnClickedCheckToall)
+	// ON_BN_CLICKED(IDC_CHECK_TOALL, &Cipc2023Dlg::OnBnClickedCheckToall) : Broadcast 버튼이 없으므로 삭제 --2024.10.02--
+
+	ON_CBN_SELCHANGE(IDC_COMBO_SELSRCADDR, &Cipc2023Dlg::OnCbnSelchangeComboSelsrcaddr)
+
 END_MESSAGE_MAP()
 
 
@@ -395,8 +398,10 @@ void Cipc2023Dlg::OnTimer(UINT nIDEvent)
 }
 
 
-void Cipc2023Dlg::OnBnClickedButtonAddr()
+void Cipc2023Dlg::OnBnClickedButtonSetdstaddr()
 {
+	// '선택' 버튼의 이름 변경->목적지 주소 변경
+	// 아래 코드 수정 필요 --2024.10.02--
 	UpdateData(TRUE);
 
 	if (!m_unDstAddr ||
@@ -423,7 +428,8 @@ void Cipc2023Dlg::OnBnClickedButtonAddr()
 
 	m_bSendReady = !m_bSendReady;
 }
-
+/* Broadcast 버튼 삭제 
+ 
 void Cipc2023Dlg::OnBnClickedCheckToall()
 {
 	CButton* pChkButton = (CButton*)GetDlgItem(IDC_CHECK_TOALL);
@@ -435,3 +441,22 @@ void Cipc2023Dlg::OnBnClickedCheckToall()
 		SetDlgState(IPC_UNICASTMODE);
 	}
 }
+*/
+
+
+
+
+
+
+
+
+
+
+void Cipc2023Dlg::OnCbnSelchangeComboSelsrcaddr()
+{
+	// 시작 주소를 선택하는 combo 박스 --2024.10.02--
+
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	
+}
+

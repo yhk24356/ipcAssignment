@@ -90,4 +90,11 @@ public:
 	CString m_stMessage;
 	CListBox m_ListChat;
 	afx_msg void OnBnClickedCheckToall();
+	afx_msg void OnEnChangeEditSrc();
+	afx_msg void OnEnChangeEdit1();
+	afx_msg void OnEnChangeNowaddr();
+	afx_msg void OnEnChangeEditDst();
+	afx_msg void OnBnClickedButtonSetdstaddr();
+	afx_msg void OnCbnSelchangeComboSelsrcaddr();
+	afx_msg void OnEnChangeEditMsg();
 };
